@@ -3,8 +3,8 @@
   "value": {
     "key": "wallet",
     "chain-id": "STRIDE-TESTNET-2",
-    "rpc-addr": "http://localhost:26657",
-    "grpc-addr": "",
+    "rpc-addr": "http://stride.stake-take.com:26657",
+    "grpc-addr": "http://stride.stake-take.com:9090",
     "account-prefix": "stride",
     "keyring-backend": "test",
     "gas-adjustment": 1.1,
