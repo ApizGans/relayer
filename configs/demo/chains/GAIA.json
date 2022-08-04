@@ -4,7 +4,7 @@
     "key": "wallet",
     "chain-id": "GAIA",
     "rpc-addr": "http://stride.stake-take.com:46657",
-    "grpc-addr": "http://stride.stake-take.com",
+    "grpc-addr": "http://stride.stake-take.com:9490",
     "account-prefix": "cosmos",
     "keyring-backend": "test",
     "gas-adjustment": 1.1,
