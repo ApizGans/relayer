@@ -2,7 +2,7 @@
   "type": "cosmos",
   "value": {
     "key": "wallet",
-    "chain-id": "ibc-0",
+    "chain-id": "STRIDE-TESTNET-2",
     "rpc-addr": "http://localhost:26657",
     "grpc-addr": "",
     "account-prefix": "stride",
