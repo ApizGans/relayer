@@ -1,0 +1,17 @@
+{
+  "type": "cosmos",
+  "value": {
+    "key": "wallet",
+    "chain-id": "ibc-0",
+    "rpc-addr": "http://localhost:26657",
+    "grpc-addr": "",
+    "account-prefix": "stride",
+    "keyring-backend": "test",
+    "gas-adjustment": 1.1,
+    "gas-prices": "0.0025ustrd",
+    "debug": true,
+    "timeout": "10s",
+    "output-format": "json",
+    "sign-mode": "direct"
+  }
+}
