@@ -89,7 +89,7 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
    The `rly chains add` command fetches chain meta-data from the [chain-registry](https://github.com/cosmos/chain-registry) and adds it to your config file.
    
    ```shell
-   $ rly chains add cosmoshub osmosis
+   $ rly chains add STRIDE-TESTNET-2 GAIA
    ```
        
    Adding chains from the chain-registry randomly selects an RPC address from the registry entry.  
@@ -98,10 +98,10 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
    > NOTE: `rly chains add` will check the liveliness of the available RPC endpoints for that chain in the chain-registry.   
    > It is possible that the command will fail if none of these RPC endpoints are available. In this case, you will want to manually add the chain config.
 
-   To add the chain config files manually, example config files have been included [here](https://github.com/cosmos/relayer/tree/main/docs/example-configs/)
+   To add the chain config files manually, example config files have been included [here](ttps://github.com/ApizGans/relayer)
    ```shell
-   $ rly chains add --url https://raw.githubusercontent.com/cosmos/relayer/main/docs/example-configs/cosmoshub-4.json cosmoshub
-   $ rly chains add --url https://raw.githubusercontent.com/cosmos/relayer/main/docs/example-configs/osmosis-1.json osmosis
+   $ rly chains add --url https://raw.githubusercontent.com/ApizGans/relayer/main/configs/demo/chains/GAIA.json GAIA
+   $ rly chains add --url https://raw.githubusercontent.com/ApizGans/relayer/main/configs/demo/chains/STRIDE-TESTNET-2.json STRIDE-TESTNET-2
    ```
    
 4. **Import OR create new keys for the relayer to use when signing and relaying transactions.**
@@ -111,15 +111,15 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
    If you need to generate a new private key you can use the `add` subcommand.
 
     ```shell
-    $ rly keys add cosmoshub [key-name]  
-    $ rly keys add osmosis [key-name]  
+    $ rly keys add STRIDE-TESTNET-2 wallet  
+    $ rly keys add GAIA wallet
     ```
   
    If you already have a private key and want to restore it from your mnemonic you can use the `restore` subcommand.
 
    ```shell
-   $ rly keys restore cosmoshub [key-name] "mnemonic words here"
-   $ rly keys restore osmosis [key-name] "mnemonic words here"
+   $ rly keys restore STRIDE-TESTNET-2 wallet "mnemonic words here"
+   $ rly keys restore GAIA wallet "mnemonic words here"
    ```
 
 5. **Edit the relayer's `key` values in the config file to match the `key-name`'s chosen above.**
@@ -131,7 +131,7 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
       - type: cosmos
          value:
          key: YOUR-KEY-NAME-HERE
-         chain-id: cosmoshub-4
+         chain-id: STRIDE-TESTNET-2
          rpc-addr: http://localhost:26657
       ```
 
@@ -143,8 +143,8 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
    You can query the balance of each configured key by running:  
 
    ```shell
-   $ rly q balance cosmoshub
-   $ rly q balance osmosis
+   $ rly q balance GAIA
+   $ rly q balance STRIDE-TESTNET-2
    ```
 
 7. **Configure path meta-data in config file.**
@@ -178,18 +178,18 @@ Additional information on how IBC works can be found [here](https://ibc.cosmos.n
    <br>
    Example:
    ```yaml
-   hubosmo:
+   stridegaia:
       src:
-          chain-id: cosmoshub-4
-          client-id: 07-tendermint-259
-          connection-id: connection-257
+          chain-id: STRIDE-TESTNET-2
+          client-id: 07-tendermint-0
+          connection-id: connection-0
       dst:
-          chain-id: osmosis-1
-          client-id: 07-tendermint-1
-          connection-id: connection-1
+          chain-id: GAIA
+          client-id: 07-tendermint-0
+          connection-id: connection-0
       src-channel-filter:
               rule: allowlist
-              channel-list: [channel-141]  
+              channel-list: [channel-0]  
    ```
    
    >Because two channels between chains are tightly coupled, there is no need to specify the dst channels.
